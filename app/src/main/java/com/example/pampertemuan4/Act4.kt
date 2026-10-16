@@ -2,14 +2,20 @@ package com.example.pampertemuan4
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -49,7 +55,7 @@ fun FormDataDiri(modifier: Modifier){
             gender.forEach { item ->
                 Row(modifier = Modifier.selectable(
                     selected = textJK == item,
-                    onClick = { texJK = item}
+                    onClick = { textJK = item}
                 ), verticalAlignment = Alignment.CenterVertically){
                     RadioButton(
                         selected = textJK == item,
@@ -100,7 +106,7 @@ fun FormDataDiri(modifier: Modifier){
             thickness = dimensionResource(R.dimen.divider_tipis),
             color = Color.DarkGray
         )
-        ElevateCard (
+        ElevatedCard (
             elevation = CardDefaults.cardElevation(defaultElevation = 10.dp),
             colors = CardDefaults.cardColors(containerColor = Color.Black),
             modifier = Modifier
@@ -108,9 +114,9 @@ fun FormDataDiri(modifier: Modifier){
                 .width(300.dp)
         ){
             Column(modifier = Modifier.padding(horizontal = 5.dp, vertical = 15.dp),){
-                Text{text = "Nama : "+nama, color = Color.White}
-                Text{text = "Gender : "+jenis, color = Color.White}
-                Text{text = "Alamat : "+alamat, color = Color.White}
+                Text(text = "Nama : "+nama, color = Color.White)
+                Text(text = "Gender : "+jenis, color = Color.White)
+                Text(text = "Alamat : "+alamat, color = Color.White)
             }
         }
     }
